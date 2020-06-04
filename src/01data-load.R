@@ -1,5 +1,4 @@
 rm(list = ls())
-getwd()
 
 ## library load
 
@@ -53,8 +52,6 @@ table(train1$plant1_train.cond_loc1) # 0 : 56575, 1 : 273
 table(train1$plant1_train.cond_loc2) # 0 : 56367, 1 : 481
 table(train1$plant1_train.cond_loc3) # 0 : 56225, 1 : 623
 
-train1 %>% tail()
-
 train1$plant_test.planet = 1
 train1$plant_test.loc = NA
 colnames(train1)
@@ -88,18 +85,9 @@ train1_loc3$tem_diff = train1_loc3$plant1_train.tem_in_loc3 - train1_loc3$plant1
 train1_loc3$tem_diff_abs = abs(train1_loc3$tem_diff)
 
 
-train1_loc3
-getwd()
 #fwrite(train1_loc1, "./output/train1_loc1.csv")
 #fwrite(train1_loc2, "./output/train1_loc2.csv")
 #fwrite(train1_loc3, "./output/train1_loc3.csv")
-
-
-
-train1_loc1 %>% head
-
-
-
 
 
 
@@ -128,7 +116,7 @@ plant2_train$after48h = plant2_train$plant2_train.mea_ddhr %>% update(mday = 3)
 plant2_cond_after24 = plant2_train[,c("plant2_train.mea_ddhr", "plant2_train.cond_loc1", "plant2_train.cond_loc2", "plant2_train.cond_loc3")]
 plant2_cond_after24 = plant2_cond_after24[-c(1:8),]
 plant2_cond_after24$plant2_train.mea_ddhr = plant2_cond_after24$plant2_train.mea_ddhr -(60 * 60 * 24)
-plant2_cond_after24 %>% tail
+
 colnames(plant2_cond_after24) = c("plant2_train.mea_ddhr", "after24_loc1", "after24_loc2", "after24_loc3")
 
 
@@ -158,8 +146,6 @@ train2 %>% tail()
 
 train2$plant_test.planet = 2
 train2$plant_test.loc = NA
-colnames(train2)
-
 
 
 # 구역별로 데이터 리폼
@@ -192,8 +178,6 @@ train2_loc3$tem_diff = train2_loc3$plant2_train.tem_in_loc3 - train2_loc3$plant2
 train2_loc3$tem_diff_abs = abs(train2_loc3$tem_diff)
 
 
-
-getwd()
 #fwrite(train2_loc1, "./output/train2_loc1.csv")
 #fwrite(train2_loc2, "./output/train2_loc2.csv")
 #fwrite(train2_loc3, "./output/train2_loc3.csv")
