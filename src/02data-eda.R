@@ -6,6 +6,8 @@ library(patchwork)
 library(tidyverse)
 library(plyr)
 
+source(file="./src/01data-load.R")
+
 
 #install.packages("conflicted")
 # library(conflicted)
